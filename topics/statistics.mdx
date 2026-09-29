@@ -1,0 +1,133 @@
+---
+title: "Statistics Viva Questions for AI & Data Science"
+sidebarTitle: "Statistics"
+description: "Brush up on Statistics for your viva with Viva Mate AI. Covers probability, distributions, hypothesis testing, and regression analysis."
+---
+
+Statistics is the language that underpins every machine learning model, every experiment, and every claim made from data — which is precisely why examiners treat it as non-negotiable in AI and Data Science vivas. A shaky statistical foundation shows up quickly under oral questioning, whether you are asked to interpret a p-value, state the assumptions of linear regression, or explain what Bayes' theorem means in the context of a classifier. Viva Mate AI helps you build that foundation through targeted, examiner-style practice so that statistical reasoning feels second nature on the day of your viva.
+
+## Topics Covered
+
+Viva Mate AI covers the following Statistics topics across core and applied levels:
+
+**Probability Theory**
+- Sample spaces, events, and the axioms of probability
+- Conditional probability — P(A | B) and how to reason about dependent events
+- Bayes' theorem — derivation, interpretation, and application
+- Independence vs. mutual exclusivity — a commonly confused distinction
+- Law of total probability and its use in decomposing complex probability calculations
+
+**Probability Distributions**
+- Normal (Gaussian) distribution — properties, the 68-95-99.7 rule, and the Central Limit Theorem
+- Binomial distribution — modelling counts of successes in fixed trials
+- Poisson distribution — modelling rare events and rates
+- Chi-squared distribution — role in goodness-of-fit and independence tests
+- Understanding PDFs, CDFs, and how to interpret them
+
+**Hypothesis Testing**
+- The null and alternative hypothesis framework
+- The p-value — definition, correct interpretation, and common misconceptions
+- Significance level (α), critical regions, and the decision rule
+- Type I error (false positive) and Type II error (false negative) — definitions and consequences
+- Statistical power and sample size considerations
+- One-sample and two-sample t-tests, paired t-tests
+- One-way ANOVA and when to use it instead of multiple t-tests
+
+**Regression Analysis**
+- Simple linear regression — the least squares criterion and interpretation of coefficients
+- Multiple linear regression — adding predictors, interpreting partial effects
+- The four key assumptions: linearity, independence of errors, homoscedasticity, and normality of residuals
+- R² and adjusted R² — measuring goodness of fit and the penalty for adding predictors
+- Residual analysis — how to diagnose assumption violations through plots
+
+**Correlation & Causation**
+- Pearson correlation coefficient — assumptions and sensitivity to outliers
+- Spearman rank correlation — a non-parametric alternative
+- Interpreting correlation matrices and heatmaps
+- Confounding variables and why correlation does not imply causation
+- Simpson's paradox as a practical illustration of the dangers of ignoring confounders
+
+**Bayesian Statistics**
+- Prior, likelihood, and posterior — the three components of Bayesian inference
+- Updating beliefs with evidence — the conceptual flow of Bayesian reasoning
+- Bayesian vs. frequentist interpretations of probability
+- Conjugate priors as a conceptual simplification
+- How Bayesian thinking connects to Naive Bayes classifiers in ML
+
+---
+
+## Sample Questions
+
+Work through these classic Statistics viva questions. Open each accordion for the key points a strong answer must address.
+
+<AccordionGroup>
+  <Accordion title="Explain Bayes' theorem with an example.">
+    **Key points to cover:**
+    - State Bayes' theorem clearly: P(A | B) = [P(B | A) × P(A)] / P(B), and name the three components — prior P(A), likelihood P(B | A), and posterior P(A | B).
+    - Explain in plain language: Bayes' theorem tells you how to update your belief about event A after observing evidence B.
+    - Use a concrete medical testing example: if a disease affects 1% of the population and a test has 99% sensitivity and 95% specificity, what is the probability a patient actually has the disease given a positive test? Walk through the calculation to show the posterior is lower than most people intuitively expect — this demonstrates why base rates (the prior) matter.
+    - Connect to machine learning: Naive Bayes classifiers apply Bayes' theorem by treating each feature as conditionally independent given the class label.
+    - A strong answer will also briefly contrast this with the frequentist approach, where probability is a long-run frequency rather than a degree of belief.
+  </Accordion>
+
+  <Accordion title="What is a p-value and what does it tell you?">
+    **Key points to cover:**
+    - Define it precisely: the p-value is the probability of observing a test statistic at least as extreme as the one computed from your sample, assuming the null hypothesis is true.
+    - Be explicit about what a p-value does NOT mean: it is not the probability that the null hypothesis is true, and it is not the probability that your result occurred by chance in a loose colloquial sense.
+    - Explain the decision rule: if p < α (the chosen significance level, typically 0.05), you reject the null hypothesis; otherwise, you fail to reject it. Failing to reject is not the same as accepting it.
+    - Discuss p-value limitations: a p-value says nothing about the size or practical importance of an effect — a tiny p-value in a large dataset may correspond to a negligible effect size. Always report effect sizes alongside p-values.
+    - Mention p-hacking and the replication crisis as important context for why p-values must be interpreted carefully.
+  </Accordion>
+
+  <Accordion title="What are the assumptions of linear regression?">
+    **Key points to cover:**
+    - **Linearity**: the relationship between predictors and the response is linear. Diagnose with a residuals vs. fitted values plot — a curved pattern suggests non-linearity.
+    - **Independence of errors**: the residuals are independent of one another. This is particularly at risk with time-series data or clustered samples.
+    - **Homoscedasticity**: the variance of residuals is constant across all levels of the fitted values. A funnel-shaped pattern in the residual plot indicates heteroscedasticity.
+    - **Normality of residuals**: the residuals are approximately normally distributed. Diagnose with a Q-Q plot. Note that this assumption matters more in small samples; the Central Limit Theorem makes it less critical in large samples.
+    - **No perfect multicollinearity**: predictors should not be perfectly linearly related to each other. Use Variance Inflation Factor (VIF) to detect multicollinearity.
+    - A strong answer will pair each assumption with a diagnostic tool and briefly note what to do when an assumption is violated.
+  </Accordion>
+
+  <Accordion title="What is the difference between Type I and Type II errors?">
+    **Key points to cover:**
+    - **Type I error** (false positive): you reject the null hypothesis when it is actually true. The probability of committing a Type I error is α, the significance level.
+    - **Type II error** (false negative): you fail to reject the null hypothesis when it is actually false. The probability of committing a Type II error is β; statistical power is 1 − β.
+    - Use a concrete analogy — for example, a spam filter: a Type I error flags a legitimate email as spam (false positive); a Type II error lets a spam email through (false negative). Different contexts prioritise minimising different error types.
+    - Explain the trade-off: decreasing α (being more conservative about rejecting H₀) reduces Type I error but increases Type II error, and vice versa. You cannot minimise both simultaneously without increasing the sample size.
+    - Connect to machine learning evaluation: Type I and Type II errors map directly onto false positives and false negatives in a confusion matrix, tying this statistical concept to model assessment.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tips for Statistics Viva Prep
+
+<Tip>
+  **Practise verbal derivations, not just recall.** Examiners often ask you to derive or reason through a result on the spot — "can you show me where the p-value decision rule comes from?" Use Viva Mate AI's derivation prompt mode to build this skill alongside standard Q&A practice.
+</Tip>
+
+<Tip>
+  **Always pair concepts with their assumptions and limitations.** Strong statistics answers never describe a test or method in isolation — they include when it applies, what it assumes, and what breaks when those assumptions are violated. Make this a habit in every practice session.
+</Tip>
+
+<Tip>
+  **Know the bridges to machine learning.** Examiners in AI and Data Science vivas love to ask you to connect Statistics to ML — "how does the bias-variance tradeoff relate to overfitting?", "where does the likelihood appear in logistic regression?". Practise these cross-topic bridges explicitly.
+</Tip>
+
+<Tip>
+  **Use plain-language summaries after technical answers.** After giving a formal definition, add a one-sentence plain-English version: "In short, the p-value tells you how surprised you should be by your data if the null hypothesis were true." This signals real understanding and impresses examiners.
+</Tip>
+
+---
+
+## Explore More Topics
+
+<CardGroup cols={2}>
+  <Card title="Machine Learning" icon="robot" href="/topics/machine-learning">
+    Apply your statistical foundations to supervised learning, model evaluation, and ensemble methods.
+  </Card>
+  <Card title="Practice Sessions" icon="messages" href="/guides/practice-sessions">
+    Start an interactive viva practice session with Viva Mate AI and get real-time feedback.
+  </Card>
+</CardGroup>

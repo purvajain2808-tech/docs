@@ -1,0 +1,125 @@
+---
+title: "Data Science Viva Questions and Topics"
+sidebarTitle: "Data Science"
+description: "Prepare for Data Science viva questions covering EDA, data wrangling, feature engineering, pipelines, and end-to-end project workflows."
+---
+
+Data Science vivas test more than modelling knowledge — examiners want to see that you can think end-to-end, from raw messy data all the way through to a deployed, monitored solution. Viva Mate AI gives you structured practice across every stage of the data science lifecycle, so you can demonstrate the kind of systematic, principled thinking that distinguishes a strong candidate from a merely competent one.
+
+## Topics Covered
+
+Viva Mate AI covers the following Data Science topics at multiple difficulty levels:
+
+**Data Wrangling**
+- Identifying and handling missing values — deletion, imputation strategies, and flagging missingness
+- Detecting and treating outliers — IQR, Z-score, and domain-aware approaches
+- Working with data types — parsing dates, casting types, handling mixed-type columns
+- Core pandas operations — merge, groupby, apply, pivot, melt, and reshaping
+
+**Exploratory Data Analysis (EDA)**
+- Univariate and bivariate visualisation — histograms, box plots, scatter plots, heatmaps
+- Understanding distributions and identifying skew, kurtosis, and multimodality
+- Correlation analysis — Pearson, Spearman, and how to interpret correlation matrices
+- Identifying data quality issues through EDA before modelling
+
+**Feature Engineering**
+- Creating new features from existing ones — ratios, interactions, date decomposition
+- Encoding categorical variables — one-hot, ordinal, target, and frequency encoding
+- Feature scaling — when to standardise vs. normalise and how each affects distance-based models
+- Handling class imbalance — oversampling (SMOTE), undersampling, and class weights
+
+**Data Pipelines**
+- ETL concepts — extract, transform, and load stages
+- Building reproducible pipelines with scikit-learn's `Pipeline` and `ColumnTransformer`
+- Data versioning concepts — DVC and the motivation for tracking data like code
+- Preventing data leakage by structuring transformations correctly inside pipelines
+
+**Model Deployment Concepts**
+- Model serialisation — pickling, joblib, and ONNX format
+- Serving predictions via REST APIs — the role of Flask, FastAPI, or cloud endpoints
+- Monitoring model performance in production — distribution drift, concept drift, and retraining triggers
+- Batch vs. real-time inference trade-offs
+
+**Ethics & Bias in Data**
+- Sources of bias — sampling bias, historical bias, label bias, and feedback loops
+- Fairness metrics — demographic parity, equalised odds, and individual fairness
+- Responsible AI principles — transparency, accountability, and explainability
+- Data privacy basics — anonymisation, differential privacy concepts, and GDPR implications
+
+---
+
+## Sample Questions
+
+Practise these core Data Science viva questions. Each accordion details what a strong answer must include.
+
+<AccordionGroup>
+  <Accordion title="How would you handle missing data in a dataset?">
+    **Key points to cover:**
+    - Begin by understanding *why* the data is missing — is it Missing Completely At Random (MCAR), Missing At Random (MAR), or Missing Not At Random (MNAR)? The mechanism should guide your strategy.
+    - Describe listwise deletion and when it is acceptable (MCAR with small proportion of missing values) versus when it introduces bias.
+    - Explain imputation strategies: mean/median/mode imputation for simple cases; model-based imputation (e.g., KNN imputer, iterative imputer) for more complex patterns; and forward/backward fill for time-series data.
+    - Highlight that adding a binary missingness indicator column can preserve information about the absence itself when missingness is informative.
+    - Critically, note that any imputation strategy must be fitted on the training set only and then applied to validation and test sets — fitting on the full dataset causes data leakage.
+  </Accordion>
+
+  <Accordion title="What is feature engineering and why does it matter?">
+    **Key points to cover:**
+    - Feature engineering is the process of using domain knowledge and data understanding to create, transform, or select input variables that better represent the underlying problem for a machine learning model.
+    - Explain that most real-world data is not naturally in the form that a model can best exploit — raw timestamps may need to become "hour of day" or "is weekend"; raw prices may need to become log-prices to reduce skew.
+    - Good features can dramatically reduce the complexity of the model needed: a well-engineered feature can allow a simple linear model to outperform a complex model on raw inputs.
+    - Give examples: interaction terms (price × size for property valuation), lag features (yesterday's demand for demand forecasting), and text-derived features (word count, sentiment score).
+    - Mention that feature engineering is iterative — you form hypotheses, test them through model performance or statistical analysis, and refine.
+  </Accordion>
+
+  <Accordion title="Describe a data pipeline you would build for a classification problem.">
+    **Key points to cover:**
+    - Start from data ingestion: where does the raw data come from, and how is it loaded reproducibly?
+    - Data validation: check schema, value ranges, and expected distributions before any processing.
+    - Preprocessing steps: split data first (train/validation/test), then apply transformations fitted only on the training set — imputation, encoding, and scaling inside a scikit-learn `Pipeline`.
+    - Feature engineering: add derived features within the pipeline so they are applied consistently at training and inference time.
+    - Modelling: the final step in the pipeline is the estimator. Explain how this single pipeline object can then be serialised and used directly in production.
+    - Monitoring: describe how you would log predictions and input feature distributions in production to detect drift over time.
+  </Accordion>
+
+  <Accordion title="What is data leakage and how do you prevent it?">
+    **Key points to cover:**
+    - Data leakage occurs when information from outside the legitimate training data — typically from the future or from the test set — is used to build the model, leading to overly optimistic performance estimates that do not hold in production.
+    - Common forms: fitting preprocessors (scalers, imputers, encoders) on the full dataset before splitting; including target-correlated features that would not be available at prediction time; using future values as features in time-series problems.
+    - Prevention strategy: always split your data before applying any transformation. Use scikit-learn `Pipeline` to encapsulate all preprocessing steps so they are fitted only on training data and applied to validation/test data.
+    - For time-series data, use time-based splits rather than random splits to preserve temporal ordering.
+    - A good way to detect leakage: if your model performs suspiciously well on validation data, investigate which features have high importance — a leaking feature will often dominate.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tips for Data Science Viva Prep
+
+<Tip>
+  **Think out loud and structure your answers.** Data Science questions often have no single right answer. Examiners reward candidates who reason systematically — "first I would do X because..., then I would consider Y if...". Practise narrating your decision process with Viva Mate AI's interactive sessions.
+</Tip>
+
+<Tip>
+  **Ground every answer in a concrete scenario.** Abstract answers about missing value handling are easy to give but hard to assess. Tie your answer to a plausible context — "in a healthcare dataset where missingness in a test result column may itself be clinically significant, I would add a missingness indicator rather than simply imputing."
+</Tip>
+
+<Tip>
+  **Know your tools but stay tool-agnostic in explanations.** Mentioning pandas, scikit-learn, or DVC shows practical awareness, but lead with the concept and follow with the tool — not the other way around. Examiners want to know you understand *why* you're using a pipeline, not just *that* you use one.
+</Tip>
+
+<Tip>
+  **Prepare for ethics questions — they are increasingly common.** Many examiners now include at least one question on bias, fairness, or responsible AI. Use Viva Mate AI's Data Ethics question set to practise articulating these issues clearly and without jargon.
+</Tip>
+
+---
+
+## Explore More Topics
+
+<CardGroup cols={2}>
+  <Card title="Statistics" icon="sigma" href="/topics/statistics">
+    Strengthen your statistical foundations — probability, hypothesis testing, and regression analysis.
+  </Card>
+  <Card title="Mock Viva" icon="microphone" href="/guides/mock-viva">
+    Run a full simulated viva with Viva Mate AI and get structured feedback on your performance.
+  </Card>
+</CardGroup>

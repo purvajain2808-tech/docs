@@ -1,0 +1,127 @@
+---
+title: "Machine Learning Viva Questions and Topics"
+sidebarTitle: "Machine Learning"
+description: "Explore Viva Mate AI's Machine Learning topic coverage, including supervised learning, model evaluation, clustering, and ensemble methods."
+---
+
+Machine Learning is one of the most heavily examined subjects in AI and Data Science vivas, and for good reason — it sits at the core of almost every real-world intelligent system. Viva Mate AI gives you structured, examiner-style practice across the full ML spectrum, so you can walk into your oral exam ready to explain concepts clearly, handle follow-up questions confidently, and connect theory to practical application.
+
+## Topics Covered
+
+Viva Mate AI covers the following Machine Learning topics across beginner, intermediate, and advanced difficulty levels:
+
+**Fundamentals of ML**
+- Definitions of machine learning and its three main paradigms
+- Supervised, unsupervised, and reinforcement learning distinctions
+- Bias-variance tradeoff and its implications for model design
+- Overfitting, underfitting, and generalisation
+
+**Supervised Learning**
+- Linear regression and ordinary least squares
+- Logistic regression and decision boundaries
+- Support Vector Machines (SVMs) and kernel tricks
+- Decision trees, splitting criteria, and pruning
+- K-Nearest Neighbours (KNN) and the curse of dimensionality
+
+**Unsupervised Learning**
+- K-Means clustering and centroid initialisation (K-Means++)
+- Hierarchical clustering and dendrogram interpretation
+- DBSCAN and density-based approaches
+- Principal Component Analysis (PCA) and variance explained
+
+**Model Evaluation**
+- Train/test splits and the holdout method
+- K-fold and stratified cross-validation
+- Confusion matrix, accuracy, precision, recall, and F1-score
+- ROC curves and AUC interpretation
+- Handling class imbalance in evaluation
+
+**Ensemble Methods**
+- Bagging and the bootstrap aggregation principle
+- Random Forests and feature randomness
+- Boosting — AdaBoost, Gradient Boosting, and XGBoost
+- Stacking and blending approaches
+
+**Feature Engineering**
+- Feature scaling (standardisation vs. normalisation)
+- Encoding categorical variables (one-hot, label, target encoding)
+- Feature selection techniques (filter, wrapper, embedded)
+- Dimensionality reduction with PCA and t-SNE
+
+---
+
+## Sample Questions
+
+Practice your answers to these common Machine Learning viva questions. Each accordion reveals key points your examiner expects you to address.
+
+<AccordionGroup>
+  <Accordion title="What is the bias-variance tradeoff?">
+    **Key points to cover:**
+    - Define bias as error from overly simplistic assumptions in the learning algorithm, and variance as error from sensitivity to small fluctuations in the training data.
+    - Explain that high bias leads to underfitting (the model misses relevant patterns), while high variance leads to overfitting (the model captures noise as if it were signal).
+    - Describe the tradeoff: reducing bias often increases variance and vice versa. The goal is to find the sweet spot that minimises total test error.
+    - Give a concrete example — a linear model on non-linear data has high bias; a deep unpruned decision tree on small data has high variance.
+    - Mention techniques like regularisation (L1/L2), cross-validation, and ensemble methods as strategies to manage this tradeoff.
+  </Accordion>
+
+  <Accordion title="Explain how a Random Forest works.">
+    **Key points to cover:**
+    - Random Forest is an ensemble of decision trees trained using bagging (bootstrap aggregation).
+    - Each tree is trained on a random bootstrap sample of the training data (sampling with replacement).
+    - At each split, only a random subset of features is considered — this decorrelates the trees and reduces variance.
+    - For classification, the forest aggregates predictions by majority vote; for regression, it takes the mean.
+    - Explain why Random Forest reduces overfitting compared to a single decision tree: individual trees overfit, but their errors tend to cancel out when averaged across many uncorrelated trees.
+    - Mention out-of-bag (OOB) error as a built-in validation mechanism.
+  </Accordion>
+
+  <Accordion title="When would you use PCA?">
+    **Key points to cover:**
+    - PCA (Principal Component Analysis) is useful when your dataset has many features and you want to reduce dimensionality while retaining as much variance as possible.
+    - Common use cases: speeding up training, removing multicollinearity, enabling 2D/3D visualisation of high-dimensional data, and as a noise-reduction technique.
+    - Explain that PCA works by finding orthogonal axes (principal components) that capture the maximum variance in the data.
+    - Clarify that PCA is an unsupervised technique — it ignores class labels — so it is not always the best choice when you want to preserve class separability (LDA may be preferable there).
+    - Note the importance of standardising features before applying PCA, since it is sensitive to scale.
+  </Accordion>
+
+  <Accordion title="How do you evaluate a classification model?">
+    **Key points to cover:**
+    - Start with the confusion matrix — true positives, true negatives, false positives, and false negatives — and explain what each cell represents.
+    - Derive accuracy, precision, recall, and F1-score from the confusion matrix and explain when each metric matters most (e.g., recall is critical when false negatives are costly, like in medical diagnosis).
+    - Introduce the ROC curve and AUC: the ROC curve plots TPR vs. FPR at various thresholds, and AUC summarises the model's ability to discriminate between classes.
+    - Address class imbalance: accuracy can be misleading when classes are skewed; use balanced accuracy, F1-score, or the precision-recall curve instead.
+    - Mention cross-validation as the right evaluation framework to avoid overfitting to a single test set.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tips for ML Viva Prep
+
+<Tip>
+  **Explain the "why", not just the "what".** Examiners rarely want a textbook definition alone — they want to hear your reasoning. When describing an algorithm, always follow up with when you would and would not use it.
+</Tip>
+
+<Tip>
+  **Connect concepts to each other.** ML topics are deeply interlinked. Practise drawing connections aloud — for example, how the bias-variance tradeoff motivates cross-validation, which in turn informs your choice of ensemble method.
+</Tip>
+
+<Tip>
+  **Prepare concrete examples.** For every major concept, have a real or plausible dataset scenario in mind. Saying "in a medical imaging dataset with 95% negative labels, accuracy would be misleading because..." shows applied understanding that earns higher marks.
+</Tip>
+
+<Tip>
+  **Use Viva Mate AI's follow-up question mode.** Real vivas rarely stop at the first question. Train with follow-up chains — if you explain Random Forest, be ready for "how does it handle missing values?" or "how would you tune the number of trees?"
+</Tip>
+
+---
+
+## Explore More Topics
+
+<CardGroup cols={2}>
+  <Card title="Deep Learning" icon="brain" href="/topics/deep-learning">
+    Progress to neural networks, CNNs, RNNs, transformers, and advanced training techniques.
+  </Card>
+  <Card title="Practice Sessions" icon="messages" href="/guides/practice-sessions">
+    Learn how to run timed, examiner-style practice sessions in Viva Mate AI.
+  </Card>
+</CardGroup>

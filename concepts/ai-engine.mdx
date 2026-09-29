@@ -1,0 +1,78 @@
+---
+title: "How the Viva Mate AI Evaluation Engine Works"
+sidebarTitle: "AI Engine"
+description: "Understand how Viva Mate AI generates questions, evaluates your spoken or typed answers, and adjusts difficulty to match your skill level."
+---
+
+Every time you start a practice session, the Viva Mate AI evaluation engine is working behind the scenes — selecting the right questions for your current level, analysing every answer you submit, and continuously refining its picture of your knowledge. Understanding how the engine operates helps you get more from each session and interpret your feedback with confidence.
+
+## Question Generation
+
+The AI draws from a set of carefully curated topic syllabi aligned to standard AI and Data Science programmes at undergraduate and postgraduate levels. When the engine selects a question for you, it does not simply pull one at random — it chooses based on your current topic focus, your recent performance, and the desired difficulty level for that point in your session.
+
+Questions are designed to span the full range of cognitive demand:
+
+- **Conceptual recall** — testing whether you can accurately define, name, or describe a term or process (for example, "What is the bias-variance trade-off?")
+- **Applied reasoning** — asking you to compare approaches, justify choices, or work through a scenario (for example, "When would you choose a random forest over a single decision tree?")
+- **Depth probing** — follow-up style questions that push beyond surface definitions into underlying mechanisms and edge cases
+
+This range ensures your practice reflects the kind of questioning you will face in a real viva, where an examiner may start broad and drill down quickly.
+
+## Answer Evaluation
+
+When you submit an answer, the engine runs it through a multi-stage evaluation process before producing your score.
+
+1. **Semantic similarity analysis.** Your answer is compared to a curated reference answer using natural language understanding. The engine assesses whether your response conveys the same meaning, even if the phrasing is different — so you are not penalised for paraphrasing correct ideas.
+2. **Key concept detection.** The engine checks your answer against a set of expected concepts for that question. Each question has a defined list of terms, ideas, and relationships that a strong answer should include.
+3. **Clarity and coherence weighting.** Responses that are accurate but poorly structured or ambiguous are scored slightly lower, reflecting the fact that a viva examiner will credit clear, well-organised explanations more highly.
+4. **Score assignment.** The engine combines these signals to produce a score on a 0–10 scale, calibrated to the same standard as the scoring bands described in the Scoring & Feedback guide.
+
+## Difficulty Adaptation
+
+Viva Mate AI monitors your performance across each session and adjusts the difficulty of subsequent questions accordingly. This keeps your practice in the optimal zone — challenging enough to push your knowledge, but not so hard that you are consistently overwhelmed.
+
+- If your recent scores are **consistently high**, the engine introduces more applied and scenario-based questions, reduces straightforward recall questions, and increases the depth of probing.
+- If your recent scores are **consistently low**, the engine steps back to more foundational questions in the same topic area, allowing you to consolidate core understanding before progressing.
+- If your scores are **mixed**, the engine maintains the current difficulty while varying question type to identify specific gaps.
+
+You can also set a preferred difficulty level manually in your session settings if you want to target a specific tier.
+
+## Feedback Generation
+
+After every answer you submit, you receive a structured feedback report with four components:
+
+<Steps>
+  <Step title="Numerical Score">
+    A score from 0 to 10, with a corresponding band label (Excellent, Good, Developing, or Needs Work). This gives you an at-a-glance indication of how your answer performed.
+  </Step>
+  <Step title="Gaps Identified">
+    A list of key concepts that were missing or underdeveloped in your response. Each gap is labelled with the concept name and a brief explanation of why it matters for this question.
+  </Step>
+  <Step title="Model Answer">
+    A reference-quality answer written to exam standard. Read this carefully after each attempt — it shows you not just what to include, but how to structure and phrase a strong viva response.
+  </Step>
+  <Step title="Study Tips">
+    One or two targeted suggestions pointing you toward the specific areas of your answer that most need reinforcement, often with a recommended topic or concept to revisit.
+  </Step>
+</Steps>
+
+<Info>
+  Viva Mate AI does not record audio — all answers are submitted as text.
+</Info>
+
+<CardGroup cols={2}>
+  <Card
+    title="Scoring & Feedback"
+    icon="chart-bar"
+    href="/concepts/scoring-feedback"
+  >
+    Understand what your scores mean and how to use feedback to improve your answers.
+  </Card>
+  <Card
+    title="Practice Sessions"
+    icon="person-chalkboard"
+    href="/guides/practice-sessions"
+  >
+    Learn how to set up and run an effective practice session in Viva Mate AI.
+  </Card>
+</CardGroup>

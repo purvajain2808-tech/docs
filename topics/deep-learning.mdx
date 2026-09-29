@@ -1,0 +1,129 @@
+---
+title: "Deep Learning Viva Questions and Topics"
+sidebarTitle: "Deep Learning"
+description: "Master Deep Learning viva preparation with Viva Mate AI. Covers neural networks, CNNs, RNNs, transformers, and training techniques."
+---
+
+Deep Learning has become a defining pillar of modern AI, and examiners expect you to move fluently between the theoretical foundations and the practical decisions that make neural networks work. Viva Mate AI guides you through every layer of this topic — from explaining a single perceptron to discussing the architectural choices behind transformers — so you can handle any depth of questioning with clarity and confidence.
+
+## Topics Covered
+
+Viva Mate AI structures Deep Learning practice across the following areas:
+
+**Neural Network Fundamentals**
+- The perceptron model and its limitations
+- Activation functions — sigmoid, tanh, ReLU, Leaky ReLU, and their properties
+- Forward propagation and how outputs are computed layer by layer
+- Backpropagation and the chain rule for computing gradients
+- Gradient descent variants — batch, stochastic (SGD), and mini-batch
+
+**Convolutional Neural Networks (CNNs)**
+- Convolutional layers, filters, feature maps, and receptive fields
+- Padding, stride, and their effect on output dimensions
+- Pooling layers — max pooling vs. average pooling
+- Classic architectures: VGG, ResNet (residual connections), Inception
+- Transfer learning and fine-tuning pre-trained CNN models
+
+**Recurrent Neural Networks (RNNs)**
+- Vanilla RNNs and sequential data modelling
+- The vanishing and exploding gradient problems in deep RNNs
+- Long Short-Term Memory (LSTM) networks — cell state, forget, input, and output gates
+- Gated Recurrent Units (GRUs) and how they simplify the LSTM design
+- Sequence-to-sequence models and their applications
+
+**Transformers & Attention**
+- The intuition behind attention — weighting relevant parts of the input
+- Self-attention and the query, key, value (Q, K, V) framework
+- Multi-head attention and its benefits
+- The encoder-decoder transformer architecture
+- BERT (bidirectional pre-training) and GPT (autoregressive generation) at a conceptual level
+
+**Training Techniques**
+- Batch normalisation — purpose, placement, and effect on training stability
+- Dropout as a regularisation technique and its stochastic interpretation
+- Learning rate schedules — step decay, cosine annealing, warm-up
+- Optimisers — SGD with momentum, RMSProp, Adam, and AdamW
+- Gradient clipping for training stability in deep and recurrent networks
+
+**Practical Applications**
+- Image classification and object detection (YOLO, Faster R-CNN concepts)
+- Text generation and language modelling
+- Semantic segmentation and feature extraction
+- Model compression — pruning, quantisation, and knowledge distillation at a high level
+
+---
+
+## Sample Questions
+
+Use these questions to practise articulating Deep Learning concepts under exam conditions. Open each accordion for the key points your answer should include.
+
+<AccordionGroup>
+  <Accordion title="Explain backpropagation in your own words.">
+    **Key points to cover:**
+    - Backpropagation is the algorithm used to compute the gradients of the loss function with respect to every weight in the network.
+    - It works by applying the chain rule of calculus: the gradient at each layer is computed by multiplying the local gradient (how the layer's output changes with respect to its input) by the upstream gradient flowing back from the loss.
+    - Describe the two passes: the forward pass computes predictions and the loss; the backward pass propagates the loss gradient back through the network layer by layer.
+    - Clarify that backpropagation only computes the gradients — gradient descent (or another optimiser) is then used to update the weights.
+    - A strong answer will also mention numerical issues like vanishing gradients in deep or recurrent networks and explain why ReLU activations and residual connections help mitigate this.
+  </Accordion>
+
+  <Accordion title="What problem do LSTMs solve compared to vanilla RNNs?">
+    **Key points to cover:**
+    - Vanilla RNNs struggle to learn long-range dependencies because gradients either vanish (shrink toward zero) or explode as they are propagated back through many time steps.
+    - In practice, this means a vanilla RNN trained on a long sequence tends to "forget" information from early time steps by the time it processes later ones.
+    - LSTMs address this with a dedicated cell state — a separate memory channel that runs through time with only minor linear interactions, allowing gradients to flow more cleanly over long sequences.
+    - The three gates (forget, input, output) give the LSTM a learned mechanism to decide what information to retain, what new information to write to the cell state, and what to expose at the output.
+    - Mention GRUs as a simpler alternative that merges the cell and hidden state and uses only two gates, achieving comparable performance with fewer parameters in many tasks.
+  </Accordion>
+
+  <Accordion title="How does the attention mechanism work?">
+    **Key points to cover:**
+    - Attention allows a model to focus on different parts of the input when producing each part of the output, rather than compressing the entire input into a single fixed-length vector.
+    - In the Q, K, V formulation: queries (from the decoder or current position) are compared against keys (from the encoder or all positions) using dot products to produce attention scores. These scores are scaled, passed through a softmax to get attention weights, and then used to compute a weighted sum of the values.
+    - Self-attention applies this within a single sequence — each position attends to all other positions — enabling the model to capture relationships regardless of distance.
+    - Multi-head attention runs several attention operations in parallel with different learned projections, allowing the model to attend to different representation subspaces simultaneously.
+    - Contrast with RNN-style processing: attention removes the sequential bottleneck and enables full parallelisation during training, which is a key reason transformers scale better than RNNs.
+  </Accordion>
+
+  <Accordion title="What is dropout and why is it used?">
+    **Key points to cover:**
+    - Dropout is a regularisation technique where, during each training step, each neuron is independently set to zero with probability p (the dropout rate), effectively training on a different sub-network each time.
+    - This prevents neurons from co-adapting too closely — no single neuron can rely on the presence of specific other neurons, forcing the network to learn more robust, distributed representations.
+    - At inference time, dropout is turned off and all neurons are active; weights are typically scaled by (1 - p) to compensate for the increased number of active units (or equivalently, inverted dropout scales during training).
+    - Explain the ensemble interpretation: dropout can be viewed as approximately averaging the predictions of an exponentially large number of different network architectures.
+    - Note that dropout is less common in convolutional layers (where spatial dropout is sometimes used instead) and has largely been replaced by batch normalisation in some modern architectures.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tips for Deep Learning Viva Prep
+
+<Tip>
+  **Sketch architectures when you explain them.** Even in an oral exam, drawing a rough diagram on paper or a whiteboard signals deep understanding. Practise narrating as you sketch — "here is the input, it passes through a conv layer with 32 filters..."
+</Tip>
+
+<Tip>
+  **Know your intuitions, not just your equations.** Examiners will often push back on formulaic answers. Be ready to explain *why* batch normalisation helps training, not just *what* it does. Viva Mate AI's follow-up mode is ideal for drilling these "why" questions.
+</Tip>
+
+<Tip>
+  **Understand the trade-offs between architectures.** You should be able to compare CNNs vs. RNNs vs. Transformers for a given task and justify your choice. Practise framing answers as "I would choose X because..., but X has the limitation of... so in context Y, I might prefer Z instead."
+</Tip>
+
+<Tip>
+  **Revisit foundational maths.** Deep Learning questions often pivot to calculus (chain rule, partial derivatives) or linear algebra (matrix multiplications, eigenvalues for PCA). A solid grounding in these areas lets you answer confidently when examiners drill down.
+</Tip>
+
+---
+
+## Explore More Topics
+
+<CardGroup cols={2}>
+  <Card title="Machine Learning" icon="robot" href="/topics/machine-learning">
+    Reinforce your ML foundations — supervised learning, evaluation metrics, and ensemble methods.
+  </Card>
+  <Card title="Data Science" icon="chart-bar" href="/topics/data-science">
+    Explore EDA, data pipelines, feature engineering, and end-to-end project workflows.
+  </Card>
+</CardGroup>

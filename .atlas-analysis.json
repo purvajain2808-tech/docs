@@ -1,0 +1,71 @@
+{
+  "projectType": "saas",
+  "projectName": "Viva Mate AI",
+  "projectDescription": "An AI-powered viva (oral exam) preparation platform that helps AI and Data Science students practise questions, receive instant feedback, and build confidence before their examinations.",
+  "theme": "almond",
+  "primaryColor": "#999999",
+  "lightColor": "#040404",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "getting-started/account-setup"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/what-is-viva-mate",
+              "concepts/ai-engine",
+              "concepts/question-bank",
+              "concepts/scoring-feedback"
+            ]
+          },
+          {
+            "group": "Using Viva Mate",
+            "pages": [
+              "guides/practice-sessions",
+              "guides/topic-selection",
+              "guides/mock-viva",
+              "guides/performance-review"
+            ]
+          },
+          {
+            "group": "Subjects & Topics",
+            "pages": [
+              "topics/machine-learning",
+              "topics/deep-learning",
+              "topics/data-science",
+              "topics/statistics"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "AI-generated viva questions tailored to AI & Data Science syllabi",
+    "Real-time answer evaluation and instant feedback",
+    "Mock viva sessions simulating oral examination conditions",
+    "Topic-wise practice across Machine Learning, Deep Learning, Statistics, and Data Science",
+    "Performance analytics and progress tracking",
+    "Personalised question difficulty adjustment based on student performance",
+    "Curated question bank covering core exam topics",
+    "Student-friendly interface for self-paced preparation"
+  ],
+  "publicApiSurface": []
+}
